@@ -86,7 +86,7 @@ impl Projector {
     pub fn from_config(config: PathBuf, pwd: PathBuf) -> Self {
         if std::fs::metadata(&config).is_ok() {
             let contents = std::fs::read_to_string(&config);
-            let contents = contents.unwrap_or(String::from("{\"projector\":{}}"));
+            let contents = contents.unwrap_or(String::from("{\"json_grabber\":{}}"));
             let data = serde_json::from_str(&contents);
             let data = data.unwrap_or(default_data());
             return Projector { config, pwd, data };
@@ -106,7 +106,7 @@ mod test {
 
     use collection_macros::hashmap;
 
-    use crate::projector::{Data, Projector};
+    use crate::json_grabber::{Data, Projector};
 
     fn get_data() -> HashMap<PathBuf, HashMap<String, String>> {
         return hashmap! {

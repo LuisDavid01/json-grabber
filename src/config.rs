@@ -88,7 +88,7 @@ fn get_config(config: Option<PathBuf>) -> Result<PathBuf> {
     let loc = std::env::var("APPDATA").context("unable to get env config")?;
     let mut loc = PathBuf::from(loc);
 
-    loc.push("projector");
+    loc.push("json_grabber");
     loc.push("projector.json");
 
     return Ok(loc);
