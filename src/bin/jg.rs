@@ -21,7 +21,7 @@ fn main() -> Result<()> {
     println!(
         "{} {} {}",
         "Json grabber".bright_green().bold(),
-        "v0.1.0".bright_yellow(),
+        "v0.1.1".bright_yellow(),
         "Remember important variables from your terminal 🦀\n".bright_white(),
     );
     let config: Config = Opts::parse().try_into()?;

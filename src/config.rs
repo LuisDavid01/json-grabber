@@ -84,8 +84,16 @@ fn get_config(config: Option<PathBuf>) -> Result<PathBuf> {
     if let Some(v) = config {
         return Ok(v);
     }
+    
+    let os = std::env::consts::OS;
+    let usr_env_dir;
+    if os == "Windows" {
+        usr_env_dir = "APPDATA";
+    } else {
+        usr_env_dir  = "HOME";
+    }
+    let loc = std::env::var(usr_env_dir).context("unable to get env config")?;
 
-    let loc = std::env::var("APPDATA").context("unable to get env config")?;
     let mut loc = PathBuf::from(loc);
 
     loc.push("json_grabber");

@@ -27,8 +27,11 @@ cd json-grabber
 cargo build --release
 
 cd target/release
-#Depends on your os (use .exe extension if on windows)
-.\json-grabber <config> <pwd> <args>
+# Run on windows 
+#.\jg <config> <pwd> <args>
+# Run on Linux/MacOs
+./jg <config> <pwd> <args>
+
 ```
 ## Options
 ### `--config`, `-c`
@@ -36,17 +39,17 @@ cd target/release
 
 **Usage:**
 ```bash
-./json-grabber --config /path/to/config.json
-./json-grabber -c my-config.json
+./jg --config /path/to/config.json
+./jg -c my-config.json
 ```
 
 **Example:**
 ```bash
 # Create a new config file
-./json-grabber -c project-commands.json
+./jg -c project-commands.json
 
 # Use an existing config file
-./json-grabber --config ~/.json-grabber/work-config.json
+./jg --config ~/.json-grabber/work-config.json
 ```
 
 ### `--pwd`
@@ -54,16 +57,16 @@ cd target/release
 
 **Usage:**
 ```bash
-./json-grabber --pwd /path/to/directory [ACTION]
+./jg --pwd /path/to/directory [ACTION]
 ```
 
 **Example:**
 ```bash
 # Set context to a specific directory
-./json-grabber --pwd /home/user/my-project add "npm start" "dev"
+./jg --pwd /home/user/my-project add "npm start" "dev"
 
 # Use current directory if not specified
-./json-grabber add "cargo build" "build"
+./jg add "cargo build" "build"
 ```
 
 ## Actions
@@ -73,20 +76,20 @@ cd target/release
 
 **Syntax:**
 ```bash
-./json-grabber add <key> <value>
-./json-grabber add "<command>" "<alias>"
+./jg add <key> <value>
+./jg add "<command>" "<alias>"
 ```
 
 **Examples:**
 ```bash
 # Add a simple command
-./json-grabber add "git status" "status"
+./jg add "git status" "status"
 
 # Add a complex command with flags
-./json-grabber add "docker run -it --rm ubuntu:latest" "ubuntu-shell"
+./jg add "docker run -it --rm ubuntu:latest" "ubuntu-shell"
 
 # Add a build command for current project
-./json-grabber add "npm run build && npm run test" "build-and-test"
+./jg add "npm run build && npm run test" "build-and-test"
 ```
 
 ### `rm`
@@ -94,17 +97,17 @@ cd target/release
 
 **Syntax:**
 ```bash
-./json-grabber rm <key>
-./json-grabber rm <alias>
+./jg rm <key>
+./jg rm <alias>
 ```
 
 **Examples:**
 ```bash
 # Remove a command by alias
-./json-grabber rm "status"
+./jg rm "status"
 
 # Remove a specific entry
-./json-grabber rm "build-and-test"
+./jg rm "build-and-test"
 ```
 
 ### `get` 
@@ -112,7 +115,7 @@ cd target/release
 
 **Syntax:**
 ```bash
-./json-grabber <key>
+./jg <key>
 ```
 
 
