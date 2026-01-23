@@ -84,10 +84,10 @@ fn get_config(config: Option<PathBuf>) -> Result<PathBuf> {
     if let Some(v) = config {
         return Ok(v);
     }
-    
+
     let os = std::env::consts::OS;
     let usr_env_dir;
-    if os == "Windows" {
+    if os == "windows" {
         usr_env_dir = "APPDATA";
     } else {
         usr_env_dir  = "HOME";
